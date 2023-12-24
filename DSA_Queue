@@ -1,0 +1,76 @@
+package DSA;
+public class CircularQueue {
+	int queue[]=new int[5];
+	int front;
+	int rear;
+	int size;
+	
+	public void enQueue(int data) {
+		queue[rear%5]=data;
+		rear=rear+1%5;
+		size++;
+	}
+	
+	public int deQueue() {
+		int data=queue[front];
+		front=front+1%5;
+		size--;
+		return data;
+	}
+	public int getSize() {
+		return size;
+	}
+	
+	public boolean isEmpty() {
+		return size==0;
+	}
+	
+	public boolean isFull() {
+		return size==5;
+	}
+	public void show() {
+		System.out.print("Normal process : " );
+		for(int i=0;i<size;i++) {
+			System.out.print(queue[(front+i)%5]+" ");
+			
+		}
+		System.out.print('\n'+"Circular : ");
+		
+		for(int n:queue) {
+			System.out.print(n+" ");
+			
+		}
+		
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		CircularQueue q=new CircularQueue();
+		q.enQueue(7);
+		q.enQueue(8);
+		q.enQueue(5);
+		q.enQueue(3);
+		
+		
+		q.deQueue();
+		q.deQueue();
+		q.deQueue();
+ 		
+		q.enQueue(9);
+		q.enQueue(2);
+		q.enQueue(6);
+		q.enQueue(4);
+		
+		System.out.println("Size : "+q.getSize());
+		System.out.println(q.isEmpty());
+		System.out.println(q.isFull());
+		q.show();
+		
+		
+		
+		
+
+	}
+
+}
