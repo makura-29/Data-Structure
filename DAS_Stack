@@ -1,0 +1,51 @@
+package DSA;
+
+public class Stack {
+	int Stack[]=new int[5];
+	int top=0;
+	public void push(int data) {
+		Stack[top]=data;
+		top++;	
+	}
+	
+	public int pop() {
+		int data;
+		top--;
+		data=Stack[top];
+		Stack[top]=0;
+
+		return data;
+	}
+	
+	public int peek() {
+		int data;
+		data=Stack[top-1];
+		return data;
+		
+	}
+	
+	public int getSize() {
+		return top;
+	}
+	public void show() {
+		for(int n:Stack) {
+			System.out.print(n+" ");
+		}
+	}
+	
+	public static void main(String[] args) {
+		Stack s=new Stack();
+		s.push(9);
+		s.push(6);
+		s.push(3);
+		s.push(5);
+		s.push(1);
+		s.pop();
+		s.pop();
+		System.out.println("Size : "+s.getSize());
+		System.out.println("Just peek : "+s.peek());
+		
+		s.show();
+	}
+
+}
